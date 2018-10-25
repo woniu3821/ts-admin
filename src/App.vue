@@ -8,5 +8,4 @@
   </div>
 </template>
 <style lang="stylus">
-@import '~@/stylus/global'
 </style>

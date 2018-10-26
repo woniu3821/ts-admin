@@ -1,9 +1,6 @@
-export interface HomeContent {
-  name: string;
-  m1?: boolean;
-}
+export interface TableContent {}
 export interface State {
   count: number;
-  test1?: Array<HomeContent>;
+  list: Array<any>;
   message: string;
 }

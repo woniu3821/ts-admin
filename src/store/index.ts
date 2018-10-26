@@ -1,7 +1,9 @@
 import Vue from "vue";
-import Vuex from "vuex";
-Vue.use(Vuex);
+import Vuex, { Commit, Dispatch } from "vuex";
+
 import home from "./home/index";
+
+Vue.use(Vuex);
 export default new Vuex.Store({
   strict: true,
   state: {},
@@ -11,3 +13,8 @@ export default new Vuex.Store({
     home
   }
 });
+
+export interface ActionContextBasic {
+  commit: Commit;
+  dispatch: Dispatch;
+}

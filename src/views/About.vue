@@ -1,18 +1,22 @@
 <template>
   <div class="home">
    <Table :columns="columns" :data="list"></Table>
-    <Button type="error" @click="getCityWeather(city)">获取数据</Button>
+   <Page :total="100" @on-change="pageChange" show-total />  
+
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { State, Getter, Mutation, Action } from "vuex-class";
-
+import { State, Getter, Mutation, Action, namespace } from "vuex-class";
+import Home from "@/views/Home.vue";
+const homeModule = namespace("home");
+interface Page {
+  pageNumber: number;
+  pageSize: number;
+}
 @Component
-export default class Home extends Vue {
-  city: string = "上海";
-  list: object[] = [];
+export default class About extends Vue {
   columns: object[] = [
     {
       type: "selection",
@@ -59,23 +63,28 @@ export default class Home extends Vue {
       // }
     }
   ];
-
-  // @Getter("count")
+  pageObj: Page = {
+    pageNumber: 1,
+    pageSize: 10
+  };
+  @homeModule.Getter("list") list!: any;
   // count: number;
   // @Mutation("INCREMENT")
   // INCREMENT: Function;
   // @Mutation("DECREMENT")
   // DECREMENT: Function;
-  @Action("getTodayWeather") getTodayWeather: Function;
+  @homeModule.Action("TABLE_POST") public TABLE_POST!: any;
 
-  getCityWeather(city: string) {
-    this.getTodayWeather({ pageSize: 10, pageNumber: 1 }).then(
-      (res: Ajax.AjaxResponse) => {
-        this.list = res.data.datas.rows;
-        // const { low, high, type } = res.data.forecast[0];
-        // this.$Message.success(`${city}今日：${type} ${low} - ${high}`);
-      }
-    );
+  getTableList() {
+    this.TABLE_POST(this.pageObj);
   }
+  pageChange(num: number) {
+    this.pageObj.pageNumber = num;
+    this.getTableList();
+  }
+  mounted() {}
 }
 </script>
+<style lang="stylus" scoped>
+</style>
+>

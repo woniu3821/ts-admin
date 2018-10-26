@@ -1,1 +1,1 @@
-export const GET_TABLE = "GET_TABLE";
+export const TABLE_POST = "TABLE_POST";

@@ -45,11 +45,11 @@ const axiosConfig: AxiosRequestConfig = {
   // 最多转发数，用于node.js
   maxRedirects: 5,
   // 最大响应数据大小
-  maxContentLength: 2000,
+  maxContentLength: 2000
   // 自定义错误状态码范围
-  validateStatus: function(status: number) {
-    return status >= 200 && status < 300;
-  }
+  // validateStatus: function(status: number) {
+  //   return status >= 200 && status < 300;
+  // }
   // 用于node.js
   //   httpAgent: new http.Agent({ keepAlive: true }),
   //   httpsAgent: new https.Agent({ keepAlive: true })

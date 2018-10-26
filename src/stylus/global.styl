@@ -1,5 +1,8 @@
 @import '~stylus/variable'
 @import '~stylus/reset'
+@import '~stylus/mixins'
 
 .bg
     background-color $baseColor
+.clear:after, .clear:before
+    clear()

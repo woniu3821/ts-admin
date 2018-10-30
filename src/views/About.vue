@@ -9,7 +9,6 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { State, Getter, Mutation, Action, namespace } from "vuex-class";
-import Home from "@/views/Home.vue";
 const homeModule = namespace("home");
 interface Page {
   pageNumber: number;

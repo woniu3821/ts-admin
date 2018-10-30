@@ -6,7 +6,7 @@ const actions: ActionTree<any, any> = {
     const res = await request.post("/userv2/getUserByCondition", data);
     return new Promise((reject, resolve) => {
       if (res.status === 200 && res.data.code == 0) {
-        commit(TABLE_POST, res.data.datas.rows);
+        resolve(res.data.datas.rows);
       } else {
         reject(res.data.message);
       }

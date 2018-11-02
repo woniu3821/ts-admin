@@ -30,6 +30,10 @@ module.exports = {
         // target: 'http://172.20.4.218:8080',
         // ws: true,
         changeOrigin: true
+      },
+      "/ts": {
+        target: "https://www.easy-mock.com",
+        changeOrigin: true
       }
     }
   }

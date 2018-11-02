@@ -1,6 +1,8 @@
 // import http from "http";
 // import https from "https";
 // import qs from "qs";
+const PRODUCT = process.env.NODE_ENV == "production";
+
 import { AxiosResponse, AxiosRequestConfig } from "axios";
 let headers = {
   "Content-Type": "application/json",
@@ -16,8 +18,9 @@ if (process.env.NODE_ENV == "development") {
     })
   });
 }
+
 const axiosConfig: AxiosRequestConfig = {
-  baseURL: "/wec-user-mngt",
+  baseURL: PRODUCT ? "/wec-user-mngt" : "/mock/5bdbe73fedc1b37905bfd6aa/ts",
   headers: headers,
   // 请求后的数据处理
   transformResponse: [

@@ -5,7 +5,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Home from "@/views/home/Home.vue";
+import Home from "@/components/layout/Home.vue";
 @Component({
   components: {
     Home

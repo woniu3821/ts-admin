@@ -1,4 +1,5 @@
 export const routes = [
+  { path: "/", redirect: "/user-list" },
   {
     path: "/user-list",
     name: "user-list",

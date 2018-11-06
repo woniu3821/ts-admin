@@ -4,8 +4,6 @@
         管理员设置
       </Row>
        <Table :columns="columns" :data="list"></Table>
-    <Button type="primary" @click="getUserList">增加</Button>
-    <Button type="primary" @click="reduce">减少</Button>
     </div>
 </template>
 <script lang="ts">
@@ -24,14 +22,16 @@ interface List {
 
 import { Component, Vue } from "vue-property-decorator";
 import { Action, Getter } from "vuex-class";
-import { AxiosPromise } from "axios";
+import { AxiosPromise, AxiosResponse } from "axios";
 @Component
 export default class User extends Vue {
   @Action("USER_LIST_GET") private getUserList!: () => AxiosPromise;
   @Action private reduce!: () => void;
   @Getter private result: any;
-  // private userList: List = [];
+  private list: Array<List> = [];
+
   get columns() {
+    // debugger;
     return [
       {
         title: "工号",
@@ -63,20 +63,14 @@ export default class User extends Vue {
       }
     ];
   }
-  // get list() {
-  //   let result: object[] = [];
-  //   this.userList.forEach((item: List) => {
-  //     item.MenuPermission = item.MenuPermission.reduce(
-  //       (result, next) => result + "," + next.key
-  //     );
-  //     console.log(item);
-  //     result.push(item);
-  //   });
+  // getLsit(res): viod {
+  //   console.log(res);
   // }
-  // mounted() {
-  //   this.getUserList().then(res => {
-  //     this.userList = res.data.rows;
-  //   });
+  // async parseList() {
+  //   this.list.reduce((result, next, index, arr) => {});
+  // }
+  // async mounted() {
+  //   this.getUserList().then(this.getLsit);
   // }
 }
 </script>

@@ -2,7 +2,7 @@
 <template>
         <Sider :style="{position: 'fixed', height: '100vh', left: 0, overflow: 'auto'}">
             <Menu :active-name="active" theme="dark" width="auto">
-                <menu-item v-for="(item,index) in routes" :name="item.name" v-if="!item.meta.hide" :to="item.path" :key="index">{{item.meta.name}}</menu-item>
+                <menu-item v-for="(item,index) in routes" :name="item.name" v-if="item.meta" :to="item.path" :key="index">{{item.meta.name}}</menu-item>
             </Menu>
         </Sider>
 </template>
